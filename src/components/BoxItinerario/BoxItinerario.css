@@ -1,0 +1,11 @@
+.globalBox{
+    margin-bottom: 30px;
+}
+.envolveCards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-left: 30px;
+}

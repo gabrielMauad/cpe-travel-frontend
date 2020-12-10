@@ -1,0 +1,13 @@
+.formInput {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.inputLogin {
+    height: 100px;
+}
+@media only screen and (max-width: 800px) {
+    .formInput {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}

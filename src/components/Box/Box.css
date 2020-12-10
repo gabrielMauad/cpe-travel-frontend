@@ -1,0 +1,93 @@
+.boxContainer {
+    display: flex;
+    width: 100%;
+}
+.baseRegister{
+    text-align: center;
+    display: block;
+    width: 450px;
+    height: 550px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+} 
+.containerRegister{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.fundocontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fundocontainer1{
+    margin-top: -20px;
+    margin-right: 80px;
+    text-align: right;
+}
+
+.back_button {
+    opacity: 50%;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 25px;
+    font-size: 40px;
+}
+.logoAzul {
+    height: 102px;
+    width: 243px;
+    background-image: url("/img/Icones/logoAzul.png");
+}
+.H2title {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.text {
+    font-size: 15px;
+}
+.subtitle{
+    font-size: 12px;
+}
+.linkLogin{
+    margin-top: 15px;
+    font-size: smaller;
+    
+}
+.next_button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+@media only screen and (max-width: 800px) {
+    .baseRegister {
+      height: 500px;
+      width: 280px;
+    }
+    .logoAzul {
+        height: 62px;
+        width: 146px;
+        background-image: url("/img/Icones/logoAzulMini.png");
+    }
+    .back_button {
+        font-size: 30px;
+    }
+    .H2title {
+        font-size: 25px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    .text {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .subtitle{
+        font-size: 11px;
+    }
+  }

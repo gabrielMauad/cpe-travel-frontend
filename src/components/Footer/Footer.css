@@ -1,0 +1,23 @@
+.fundoFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+.linkRedesocial {
+  font-size: smaller;
+}
+.footerEscopo {
+  text-align: center;
+}
+.linkRedesocial, .page-wrap:after { 
+  height: 5px;
+  padding: 0%;
+  width: 662;
+}
+.redesSociaisImg {
+  height: 80px;
+}
+
+

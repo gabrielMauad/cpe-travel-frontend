@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.mainContainer {
+  height: 13vh;
+  width: 100%;
+  background-color: #2745A9;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.containerBurger {
+  height: 38px;
+  width: 38px;
+  margin-top: 30px;
+  display: none;
+}
+.containerBurger:hover{
+  background-color: rgba(0,0,0,.1);
+  border-radius: 5px;
+}
+.burgerMenu {
+  width: 22px;
+  height: 2.1px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+.leftContainer {
+max-height: fit-content;
+display: flex;
+align-items: center;
+}
+.logoButton {
+  background: none;
+  outline: none!important;
+  border: none;
+}
+.rightContainer {
+  max-height: fit-content;
+  display: flex;
+  align-items: center;
+  margin-right: 3vw;
+}
+.icons {
+  color: white;
+  margin-right: 3px;
+  height: 20px;
+  width: 20px;
+  }
+.bar {
+    color: white;
+    font-size: 1rem;
+    margin: 0px;
+}
+.divButton{
+    display: flex;
+    align-items: center;
+}
+.burgerList {
+  background: #2745A9;
+  height: 100%;
+}
+.burgerListItem:hover {
+  background-color: rgba(0,0,0,.2);
+}
+.burgerText {
+  margin-left: 12px;
+  color: white;
+}
+@media only screen and (max-width: 800px) {
+  .containerBurger {
+    display: block;
+  }
+  .divButton {
+    display: none;
+  }
+  .rightContainer {
+    display: none;
+  }
+}

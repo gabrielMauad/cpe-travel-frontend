@@ -1,0 +1,61 @@
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.cardButton {
+  outline: none !important;
+  border: 0 none;
+  box-shadow: 0 0 0 0;
+  margin: 25px;
+  background: white;
+  max-height: 315px;
+  max-width: 304px;
+}
+.divCardImage {
+  width: 304px; 
+  height: 315px; 
+  overflow: hidden; 
+  margin: 0 auto;
+  border-radius: 16px; 
+}
+.cardImage {
+  border-radius: 16px;
+  filter: brightness(0.7);
+  width: 100%; 
+  transition: 0.5s all ease-in-out;
+  
+}
+.cardImage:hover {
+  transition: 1.5s;
+  transform: scale(1.1);
+}
+.cardTitle {
+  position: relative;
+  top: -200px;
+  color: white;
+  font-size: 2.0em; 
+  font-family: inherit;
+  font-weight: 500;
+}
+.cardSubtitleContainer {
+  position: relative;
+  top: -195px;
+  color: white;
+  font-size: 1.5em;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+}
+.cardSubtitleLine {
+  width: 35px;
+  height: 1.0px;
+  background-color: white;
+}
+.cardSubtitle {
+  padding-left: 10px;
+  padding-right: 10px;
+}
