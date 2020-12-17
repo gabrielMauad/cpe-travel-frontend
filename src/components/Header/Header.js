@@ -8,6 +8,7 @@ import { FiFileText, FiLogIn, FiFilePlus } from 'react-icons/fi';
 import {
   Drawer, List, ListItem, ListItemText, Button,
 } from '@material-ui/core';
+import { useAuth } from '../../hooks/auth';
 import MyButton from '../Button';
 import Logo from '../Logo';
 import './Header.css';
@@ -15,6 +16,7 @@ import './Header.css';
 function BurgerMenu(setAdmin) {
   const [open, setOpen] = useState(false);
   const history = useHistory();
+  const { user, signOut } = useAuth();
   const headerItens = [
     {
       icon: <TiPlaneOutline className="icons" />,
@@ -75,6 +77,7 @@ function BurgerMenu(setAdmin) {
 }
 
 function Header({ setAdmin }) {
+  const { user, signOut } = useAuth();
   const headerItens = [
     {
       icon: <TiPlaneOutline className="icons" />,
@@ -123,7 +126,7 @@ function Header({ setAdmin }) {
       <div className="rightContainer">
         <MyButton configMargin="0px 5px 0px 0px" page="/cadastro">Cadastre-se</MyButton>
         <p className="bar">|</p>
-        <MyButton configMargin="0px 0px 0px 5px" page="/login">Entrar</MyButton>
+        <MyButton user={user} configMargin="0px 0px 0px 5px" page={!user && '/login'}>{user ? 'Sair' : 'Entrar'}</MyButton>
       </div>
     </div>
   );
