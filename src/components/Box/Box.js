@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../services/api';
 import './Box.css';
 import { BiArrowBack } from 'react-icons/bi';
 import { Button } from 'react-bootstrap';
 import Input from '../Input';
+import { useAuth } from '../../hooks/auth';
 
 function Box({
   title, subtitle, nextMessage, nextButton, input, email, password,
@@ -14,29 +15,23 @@ function Box({
   const [users, setUsers] = useState([]);
   const url = nextButton === 'Cadastrar' ? '/img/Icones/novofundo_login.png' : '/img/Icones/novofundo-cadastro.png';
   const marginNextButton = nextButton === 'Cadastrar' ? '50px' : '0px';
+  const { user, signIn } = useAuth();
 
-  useEffect(() => {
-    const URL = 'http://localhost:8080/users';
-    fetch(URL)
-      .then(async (respostaDoServer) => {
-        if (respostaDoServer.ok) {
-          const resposta = await respostaDoServer.json();
-          setUsers([
-            ...resposta,
-          ]);
-          return;
-        }
-        throw new Error('Não foi possível pegar os dados');
-      });
+  const create = useCallback(async (objetoCadastro) => {
+    try {
+      const response = await api.post('http://localhost:3333/user', objetoCadastro);
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
-  function create(objetoCadastro) {
-    axios.post('http://localhost:8080/users', objetoCadastro)
-      .then(alert('Cadastrado com sucesso!'))
-      .catch(() => {
-        throw new Error('Não foi possível cadastrar os dados :(');
-      });
-  }
+  // function create(objetoCadastro) {
+  //       .then(alert('Cadastrado com sucesso!'))
+  //       .catch(() => {
+  //         throw new Error('Não foi possível cadastrar os dados :(');
+  //     });
+  // }
 
   const registerUser = () => {
     create({
@@ -46,17 +41,28 @@ function Box({
     });
   };
 
+  const handleLogin = useCallback(async () => {
+    try {
+      signIn({ email, password });
+      history.push('/');
+      alert('Parabens, se [e foda memo mermao');
+    } catch (err) {
+      console.log(err);
+    }
+  }, [email, password]);
+
   const handleClick = () => {
     if (nextButton === 'Cadastrar') {
       const userEmail = email;
       const userPassword = password;
-      const existUser = users.filter((item) => item.email === userEmail);
-      if (existUser.length !== 0) {
-        if (existUser[0].password === userPassword) history.push('/');
-        else alert('Informações incorretas!');
-      } else {
-        alert('Usuário não cadastrado!');
-      }
+      handleLogin();
+    //   const existUser = users.filter((item) => item.email === userEmail);
+    //   if (existUser.length !== 0) {
+    //     if (existUser[0].password === userPassword) history.push('/');
+    //     else alert('Informações incorretas!');
+    //   } else {
+    //     alert('Usuário não cadastrado!');
+    //   }
     } else {
       const isEqualsEmails = email === confirmEmail;
       const isEqualsPasswords = password === confirmPassword;
